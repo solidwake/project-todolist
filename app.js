@@ -1,5 +1,9 @@
-const addItem = event => {
+function addItem(event) {
     event.preventDefault();
-    const text = document.getElementById('todo-input');
-    return event + text;
-};
+    let text = document.getElementById('todo-input');
+    db.collection('todo-items').add({
+        text: text.value,
+        status: 'active'
+    })
+    text.value = '';
+}
