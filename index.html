@@ -14,9 +14,9 @@
     <div class="container">
         <div class="header">
             <div class="title">You got stuff to do.</div>
-            <div class="theme">
+<!--             <div class="theme">
                 <img src="./assets/white-sun.svg" alt="sun icon">
-            </div>
+            </div> -->
         </div>
         <div class="new-todo">
             <div class="check">
@@ -30,15 +30,34 @@
         </div>
         <div class="todo-items-wrapper">
             <div class="todo-items"></div>
-            <div class="todo-items-info">
+            <div class="footer">
+                <div class="count"><span></span> items left</div>
+                <div class="filters">
+                  <label>
+                    <input type="radio" name="filter" id="all" checked />
+                    <span>All</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="filter" id="active" />
+                    <span>Active</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="filter" id="completed" />
+                    <span>Completed</span>
+                  </label>
+                </div>
+                <div class="items-clear">
+                    <span>Clear Completed</span>
+                </div>
+<!--             <div class="todo-items-info">
                 <div class="items-left">5 items left</div>
                 <div class="items-status">
                     <span class="active">All</span>
                     <span>Active</span>
                     <span>Completed</span>
-                </div>
-                <div class="items-clear">
-                    <span>Clear Completed</span>
+                </div> -->
+                <div class="drag-drop">
+                    <p>Drag and drop to reorder list</p>
                 </div>
             </div>
         </div>

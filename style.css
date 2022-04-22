@@ -159,7 +159,7 @@ body {
     box-shadow: 0 2px 30px 0 rgba(0,0,0,0.4);
 }
 
-.todo-items-info {
+.footer {
     height: 70px;
     width: 100%;
     color: hsl(233, 14%, 35%);
@@ -170,7 +170,19 @@ body {
     font-size: 12px;
 }
 
-.items-status {
+.filters input[type="radio"]{
+    opacity: 0;
+}
+
+.filters label:hover, .items-clear:hover {
+    color: hsl(234, 39%, 85%);
+    cursor: pointer;
+}
+  .filters input[type="radio"]:checked ~ span{
+    color:hsl(220, 98%, 61%);
+}
+
+/* .items-status {
     display: flex;
     justify-content: center;
 }
@@ -182,4 +194,4 @@ body {
 .items-left:hover, .items-status span:hover, .items-status span.active, .items-clear span:hover {
     color: hsl(220, 98%, 61%);
     cursor: pointer;
-}
+} */
