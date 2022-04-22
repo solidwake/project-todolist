@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 * {
     margin: 0;
@@ -10,7 +9,7 @@
 body {
     display: flex;
     justify-content: center;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-size: 18px;
     background-color: hsl(235, 21%, 11%);
 }
