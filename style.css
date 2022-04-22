@@ -87,8 +87,22 @@ body {
     justify-content: center;
 }
 
-.check-mark:hover {
+.check-mark img {
+    visibility: hidden;
+}
+
+.check-mark:hover, .check-mark.checked {
     background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+}
+
+.check-mark:hover img, .check-mark.checked img {
+    visibility: visible;
+}
+
+.todo-text.checked {
+    text-decoration: line-through;
+    color: hsl(233, 14%, 50%);
+    transition: all 0.25s;
 }
 
 .new-todo-input {
