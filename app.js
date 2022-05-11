@@ -67,3 +67,7 @@ function markCompleted(id) {
 };
 
 getItems();
+
+function removeAll() {
+    document.querySelectorAll('.todo-items').innerHTML = "";
+}

@@ -7,3 +7,6 @@
 7. Create the ability to save data in Firebase
 8. Create the functionality to grab data from database
 9. Create the functionality to update the data with the status of active or completed
+10. Create the functianality to delete the list
+11. Create the functionalty to sort the list by active and completed
+12. Create the ability to drag and drop items in the list
