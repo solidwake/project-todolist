@@ -6,12 +6,19 @@
     box-sizing: border-box;
     list-style: none;
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 body {
-    background: #764AF1;
+    background: #764af1;
     overflow: hidden;
+}
+
+h1 {
+    color: #fff;
+    margin: 5rem auto;
+    max-width: 35rem;
+    font-size: 3.2rem;
 }
 
 p {
@@ -19,13 +26,14 @@ p {
 }
 
 input[type=checkbox] {
-    transform: scale(1.5);
+    transform: scale(2.1);
     cursor: pointer;
+    accent-color: #764af1;
 }
 
 .container {
     background: #fff;
-    margin: 13rem auto;
+    margin: 5rem auto;
     max-width: 35rem;
     border-radius: .4rem;
     padding: 1.7rem 0;
@@ -79,17 +87,16 @@ input[type=checkbox] {
 }
 
 .filters span.active {
-    color: #764AF1;
+    color: #764af1;
 }
 
 .controls .clear-btn {
     outline: none;
     border: none;
     color: #fff;
-    font-size: 1.2rem;
     padding: .5rem .7rem;
-    border-radius: 4px;
-    background: #764AF1;
+    border-radius: .4rem;
+    background: #764af1;
     cursor: pointer;
 }
 
@@ -116,4 +123,47 @@ input[type=checkbox] {
 .task label input {
     margin-top: 6px;
     margin-right: .75rem;
+}
+
+.task .settings {
+    cursor: pointer;
+    position: relative;
+}
+
+.settings .task-menu {
+    position: absolute;
+    padding: .4rem 0;
+    right: -.4rem;
+    bottom: -4rem;
+    z-index: 2;
+    transform: scale(0);
+    border-radius: .4rem;
+    background: #fff;
+    transform-origin: top right;
+    transition: transform .2s ease;
+    box-shadow: 0 0 .4rem rgba(0,0,0,0.15);
+}
+
+.settings:hover .task-menu {
+    transform: scale(1);
+}
+
+.task-menu li {
+    height: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: .15;
+    padding: 1.07rem .9rem;
+    justify-content: flex-start;
+}
+
+.task-menu li:last-child {
+    margin-bottom: 0;
+}
+
+.task-menu li:hover {
+    background: #f5f5f5;
+}
+
+.task-menu li i {
+    padding-right: .5rem;
 }
