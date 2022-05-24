@@ -16,7 +16,7 @@ body {
 
 h1 {
     color: #fff;
-    margin: 5rem auto;
+    margin: 5rem auto 0 auto;
     max-width: 35rem;
     font-size: 3.2rem;
 }
@@ -33,7 +33,7 @@ input[type=checkbox] {
 
 .container {
     background: #fff;
-    margin: 5rem auto;
+    margin: 3rem auto 5rem auto;
     max-width: 35rem;
     border-radius: .4rem;
     padding: 1.7rem 0;
