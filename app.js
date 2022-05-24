@@ -17,7 +17,7 @@ function displayTodo() {
                         <p class="${isCompleted}">${todo.name}</p>
                     </label>
                     <div class="settings">
-                        <i class="uil uil-ellipsis-h"></i>
+                        <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                         <ul class="task-menu">
                             <li><i class="uil uil-pen"></i>Edit</li>
                             <li><i class="uil uil-trash-alt"></i>Delete</li>
@@ -29,6 +29,18 @@ function displayTodo() {
     taskBox.innerHTML = li;
 }
 displayTodo();
+
+function showMenu(selectedTask) {
+    //Get task menu
+    let taskMenu = selectedTask.parentElement.lastElementChild;
+    taskMenu.classList.add('show');
+    document.addEventListener('click', event => {
+        //Remove show class from task menu on click
+        if(event.target.tagName != 'I' || event.target != selectedTask) {
+            taskMenu.classList.remove('show');
+        }
+    })
+}
 
 function updateStatus(selectedTask) {
     //Get text from task name
@@ -46,9 +58,9 @@ function updateStatus(selectedTask) {
 }
 
 //Allow task to be added using the enter key, and prevent user from submitting an empty value
-taskInput.addEventListener('keyup', enter => {
+taskInput.addEventListener('keyup', event => {
     let userTask = taskInput.value.trim();
-    if(enter.key == 'Enter' && userTask) {
+    if(event.key == 'Enter' && userTask) {
         if(!todos) { //If todos does not exist, pass an empty array to todos
             todos= [];
         }
