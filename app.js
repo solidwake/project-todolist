@@ -1,4 +1,5 @@
 const taskInput = document.querySelector('.task-input input'),
+filters = document.querySelectorAll('.filters span'),
 taskBox = document.querySelector('.task-box');
 
 let editId;
@@ -6,31 +7,41 @@ let isEditedTask = false;
 //Get local storage to do list
 let todos = JSON.parse(localStorage.getItem('todo-list'));
 
+filters.forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelector('span.active').classList.remove('active');
+        button.classList.add('active');
+        displayTodo(button.id);
+    });
+})
+
 //Display to do items in list
-function displayTodo() {
+function displayTodo(filter) {
     let li = '';
     if(todos) {
         todos.forEach((todo, id) => {
             //If to do item is completed, set isCompleted value to checked
             let isCompleted = todo.status == 'completed' ? 'checked' : '';
-            li += `<li class="task">
-                    <label for="${id}">
-                        <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
-                        <p class="${isCompleted}">${todo.name}</p>
-                    </label>
-                    <div class="settings">
-                        <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-                        <ul class="task-menu">
-                            <li onclick="editTask(${id}, '${todo.name}')"><i class="uil uil-pen"></i>Edit</li>
-                            <li onclick="deleteTask(${id})"><i class="uil uil-trash-alt"></i>Delete</li>
-                        </ul>
-                    </div>
-                </li>`;
+            if(filter == todo.status || filter == 'all') {
+                li += `<li class="task">
+                        <label for="${id}">
+                            <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
+                            <p class="${isCompleted}">${todo.name}</p>
+                        </label>
+                        <div class="settings">
+                            <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                            <ul class="task-menu">
+                                <li onclick="editTask(${id}, '${todo.name}')"><i class="uil uil-pen"></i>Edit</li>
+                                <li onclick="deleteTask(${id})"><i class="uil uil-trash-alt"></i>Delete</li>
+                            </ul>
+                        </div>
+                    </li>`;
+            }
         });
     }
-    taskBox.innerHTML = li;
+    taskBox.innerHTML = li || `<span>No tasks at this time</span>`;
 }
-displayTodo();
+displayTodo('all');
 
 function showMenu(selectedTask) {
     //Get task menu
