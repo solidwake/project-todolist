@@ -20,7 +20,7 @@ function displayTodo() {
                         <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                         <ul class="task-menu">
                             <li><i class="uil uil-pen"></i>Edit</li>
-                            <li><i class="uil uil-trash-alt"></i>Delete</li>
+                            <li onclick="deleteTask(${id})"><i class="uil uil-trash-alt"></i>Delete</li>
                         </ul>
                     </div>
                 </li>`;
@@ -40,6 +40,12 @@ function showMenu(selectedTask) {
             taskMenu.classList.remove('show');
         }
     })
+}
+
+function deleteTask(deleteId) {
+    todos.splice(deleteId, 1);
+    localStorage.setItem('todo-list', JSON.stringify(todos));
+    displayTodo();
 }
 
 function updateStatus(selectedTask) {
