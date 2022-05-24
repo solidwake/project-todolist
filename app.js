@@ -9,10 +9,12 @@ function displayTodo() {
     let li = '';
     if(todos) {
         todos.forEach((todo, id) => {
+            //If to do item is completed, set isCompleted value to checked
+            let isCompleted = todo.status == 'completed' ? 'checked' : '';
             li += `<li class="task">
                     <label for="${id}">
-                        <input type="checkbox" id="${id}">
-                        <p>${todo.name}</p>
+                        <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
+                        <p class="${isCompleted}">${todo.name}</p>
                     </label>
                     <div class="settings">
                         <i class="uil uil-ellipsis-h"></i>
@@ -28,7 +30,22 @@ function displayTodo() {
 }
 displayTodo();
 
-//Allow task to be added using the 'enter' key, and prevent user from submitting an empty value
+function updateStatus(selectedTask) {
+    //Get text from task name
+    let taskName = selectedTask.parentElement.lastElementChild;
+    if(selectedTask.checked) {
+        taskName.classList.add('checked');
+        //Update status of selectedTask to completed
+        todos[selectedTask.id].status = 'completed';
+    } else {
+        taskName.classList.remove('checked');
+        //Update status of selectedTask to pending
+        todos[selectedTask.id].status = 'pending';
+    }
+    localStorage.setItem('todo-list', JSON.stringify(todos));
+}
+
+//Allow task to be added using the enter key, and prevent user from submitting an empty value
 taskInput.addEventListener('keyup', enter => {
     let userTask = taskInput.value.trim();
     if(enter.key == 'Enter' && userTask) {
