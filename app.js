@@ -1,5 +1,6 @@
 const taskInput = document.querySelector('.task-input input'),
 filters = document.querySelectorAll('.filters span'),
+clearAll = document.querySelector('.clear-btn'),
 taskBox = document.querySelector('.task-box');
 
 let editId;
@@ -68,6 +69,13 @@ function deleteTask(deleteId) {
     localStorage.setItem('todo-list', JSON.stringify(todos));
     displayTodo('all');
 }
+
+clearAll.addEventListener('click', () => {
+    //Remove all items from to do array
+    todos.splice(0, todos.length);
+    localStorage.setItem('todo-list', JSON.stringify(todos));
+    displayTodo('all');
+})
 
 function updateStatus(selectedTask) {
     //Get text from task name
