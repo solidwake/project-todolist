@@ -59,13 +59,14 @@ function editTask(taskId, taskName) {
     editId = taskId;
     isEditedTask = true;
     taskInput.value = taskName;
+    displayTodo('all');
 }
 
 function deleteTask(deleteId) {
     //Remove selected task from to do array
     todos.splice(deleteId, 1);
     localStorage.setItem('todo-list', JSON.stringify(todos));
-    displayTodo();
+    displayTodo('all');
 }
 
 function updateStatus(selectedTask) {
@@ -99,6 +100,6 @@ taskInput.addEventListener('keyup', event => {
         }
         taskInput.value = '';
         localStorage.setItem('todo-list', JSON.stringify(todos));
-        displayTodo();
+        displayTodo('all');
     }
 });
