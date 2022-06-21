@@ -9,5 +9,5 @@ Link: https://solidwake.github.io/project-todolist/
 ### Tech used: HTML, CSS, JavaScript
 List items save to browser local storage so they remain if the page is refreshed or the tab is closed. Tasks can be sorted into pending and completed. Edit and delete individual list items using the ellipsis submenu on each item.
 
-## To be done:
+## To be done
 Make it responsive.
